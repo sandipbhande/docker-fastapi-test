@@ -1,18 +1,20 @@
 # Docker FastAPI Test Project
 
-A simple FastAPI application containerized using Docker and Docker Compose.
-The project demonstrates REST APIs with file-based storage using `users.json` without a database.
+A simple and lightweight FastAPI application containerized using Docker and Docker Compose.  
+This project demonstrates REST API development with file-based storage using `users.json` instead of a database.
 
 ---
 
 ## Features
 
-* FastAPI backend
-* Docker containerization
-* Docker Compose setup
-* File-based storage using `users.json`
-* Persistent data after container restart
-* Swagger UI for API testing
+- FastAPI backend
+- RESTful API endpoints
+- Docker containerization
+- Docker Compose configuration
+- File-based storage using `users.json`
+- Persistent data after container restart
+- Interactive Swagger UI documentation
+- Beginner-friendly project structure
 
 ---
 
@@ -24,7 +26,7 @@ The project demonstrates REST APIs with file-based storage using `users.json` wi
 │   ├── main.py
 │   ├── routes.py
 │   ├── models.py
-│   └── data/
+│   └── data
 │       └── users.json
 ├── Dockerfile
 ├── docker-compose.yml
@@ -34,15 +36,65 @@ The project demonstrates REST APIs with file-based storage using `users.json` wi
 
 ---
 
-## API Endpoints
+## Requirements
 
-### Home
+Before running the project, install:
+
+- Docker
+- Docker Compose
+
+---
+
+## Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/sandipbhande/docker-fastapi-test.git
+cd docker-fastapi-test
+```
+
+---
+
+### Build and Run the Application
+
+```bash
+docker-compose up --build
+```
+
+Application will run at:
+
+```text
+http://localhost:8000
+```
+
+---
+
+## 📚 API Documentation
+
+### Swagger UI
+
+```text
+http://localhost:8000/docs
+```
+
+### ReDoc
+
+```text
+http://localhost:8000/redoc
+```
+
+---
+
+## 🔗 API Endpoints
+
+### Home Endpoint
 
 ```http
 GET /
 ```
 
-Response:
+#### Response
 
 ```json
 {
@@ -58,7 +110,7 @@ Response:
 GET /users
 ```
 
-Returns the list of users stored in `users.json`.
+Returns all users stored in `users.json`.
 
 ---
 
@@ -68,17 +120,17 @@ Returns the list of users stored in `users.json`.
 POST /users
 ```
 
-Request Body:
+#### Request Body
 
 ```json
 {
   "id": 1,
-  "name": "John",
+  "name": "John Doe",
   "email": "john@example.com"
 }
 ```
 
-Response:
+#### Response
 
 ```json
 {
@@ -88,7 +140,25 @@ Response:
 
 ---
 
-## Run the Project
+## Data Persistence
+
+User data is stored in:
+
+```text
+app/data/users.json
+```
+
+Data remains available even after restarting the container.
+
+---
+
+## Docker Commands
+
+### Start Containers
+
+```bash
+docker-compose up
+```
 
 ### Build and Start Containers
 
@@ -102,18 +172,19 @@ docker-compose up --build
 docker-compose down
 ```
 
----
+### Check Running Containers
 
-## Data Persistence
-
-1. Start the container
-2. Add users using the `/users` API
-3. Stop the container
-4. Start the container again
-
-The data will remain available in `data/users.json`.
+```bash
+docker ps
+```
 
 ---
 
+
+
+
+##  License
+
+This project is for learning and assessment purposes.
 
 
