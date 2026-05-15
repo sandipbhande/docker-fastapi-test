@@ -1,30 +1,24 @@
-Here is a **GitHub-ready README.md** you can directly paste into your repository (clean, professional, and submission-ready):
-
----
-
-```md
 # Docker FastAPI Test Project
 
-This project is a simple FastAPI application containerized using Docker and Docker Compose.  
-It demonstrates REST APIs with file-based storage (no database used).
+A simple FastAPI application containerized using Docker and Docker Compose.
+The project demonstrates REST APIs with file-based storage using `users.json` without a database.
 
 ---
 
-## 🚀 Features
+## Features
 
-- FastAPI backend
-- Docker containerization
-- Docker Compose setup
-- File-based storage using `users.json`
-- Persistent data even after container restart
-- Swagger UI for API testing
+* FastAPI backend
+* Docker containerization
+* Docker Compose setup
+* File-based storage using `users.json`
+* Persistent data after container restart
+* Swagger UI for API testing
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
-```
-
+```text
 .
 ├── app
 │   ├── main.py
@@ -36,43 +30,41 @@ It demonstrates REST APIs with file-based storage (no database used).
 ├── docker-compose.yml
 ├── requirements.txt
 └── README.md
-
 ```
 
 ---
 
-## 📌 API Endpoints
+## API Endpoints
 
 ### Home
 
+```http
+GET /
 ```
 
-GET /
-
-````
-
 Response:
+
 ```json
 {
   "message": "Hello World"
 }
-````
+```
 
 ---
 
 ### Get All Users
 
-```
+```http
 GET /users
 ```
 
-Returns list of users stored in `users.json`.
+Returns the list of users stored in `users.json`.
 
 ---
 
 ### Add User
 
-```
+```http
 POST /users
 ```
 
@@ -96,15 +88,15 @@ Response:
 
 ---
 
-## 🐳 Run Project with Docker
+## Run the Project
 
-### Step 1: Build and Run
+### Build and Start Containers
 
 ```bash
 docker-compose up --build
 ```
 
-### Step 2: Stop Containers
+### Stop Containers
 
 ```bash
 docker-compose down
@@ -112,34 +104,16 @@ docker-compose down
 
 ---
 
-## 🔁 Data Persistence Test
+## Data Persistence
 
-1. Run container
-2. Add users using `/users` API
-3. Stop container
-4. Start again
+1. Start the container
+2. Add users using the `/users` API
+3. Stop the container
+4. Start the container again
 
-👉 Data will still be available in `data/users.json`
-
----
-
-## 📖 API Documentation (Swagger)
-
-After running the project, open:
-
-```
-http://localhost:8000/docs
-```
+The data will remain available in `data/users.json`.
 
 ---
 
-## 🛠 Tech Stack
-
-* Python
-* FastAPI
-* Docker
-* Docker Compose
-
----
 
 
